@@ -142,3 +142,10 @@ where rnk =1 ;
 
 -- 15. Identify the release years in which more than 50 movies from India were
 -- released.
+select release_year,
+       count(*) as total_movies
+ from netflix_data 
+ where type = 'Movie' and country = 'India' 
+ group by release_year 
+ having total_movies > 50 
+ order by release_year desc; 
